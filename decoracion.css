@@ -1,0 +1,80 @@
+/*body */
+body {
+    color: #f3a505;
+    background-image: url("Flor.jpg");
+    background-size: 300px;
+    
+}
+#izquierda {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#centro {
+    margin-top: 15%;
+    text-align: center;
+    color: whitesmoke;
+    font-size: 35px;
+    animation:reverse;
+}
+#abeja {
+    display: block;
+    max-width: 200px;
+    height: auto;
+    size: 100%;
+    width: 200px;
+}
+#derecha {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#amol{
+    background-color: #f3a505;
+    color: red;
+    font-weight: bold;
+    padding: 10px 20px;
+    animation: alternateColor 1s infinite;
+}
+
+@keyframes alternateColor {
+    0% {
+        background-color: #f3a505;
+        color: red;
+    }
+    100% {
+        background-color: yellow;
+        color: red;
+    }
+}
+
+.heart {
+    position: fixed;
+    font-size: 28px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fallHeart 2.5s ease-out forwards;
+}
+
+@keyframes fallHeart {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) translateX(30px) scale(1.2);
+        opacity: 0;
+    }
+}
