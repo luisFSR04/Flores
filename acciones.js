@@ -1,3 +1,4 @@
+alert("Espero que te guste esto");
 function cambios() {
     for (let i = 0; i < 50; i++) {
         const heart = document.createElement('span');
