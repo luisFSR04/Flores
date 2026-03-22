@@ -1,19 +1,17 @@
 alert("Espero que te guste esto");
 function cambios() {
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 40; i++) {
         const heart = document.createElement('span');
-        heart.textContent = '🏵️🌻';
+        heart.textContent = '🌻';
         heart.className = 'heart';
 
-        const startX = Math.random() * 90;
-        heart.style.left = `${startX}vw`;
-        heart.style.top = '0px';
-        heart.style.fontSize = `${18 + Math.random() * 30}px`;
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.fontSize = (20 + Math.random() * 25) + 'px';
 
         document.body.appendChild(heart);
 
         setTimeout(() => {
             heart.remove();
-        }, 6000);
+        }, 3000);
     }
 }
