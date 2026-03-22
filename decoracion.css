@@ -1,80 +1,127 @@
-/*body */
 body {
+    margin: 0;
     color: #f3a505;
     background-image: url("Flor.jpg");
-    background-size: 300px;
-    
+    background-size: 250px;
+    font-family: Arial, sans-serif;
 }
-#izquierda {
+
+/* Laterales */
+#izquierda, #derecha {
     position: fixed;
-    left: 0;
     top: 50%;
     transform: translateY(-50%);
     width: 180px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
+#izquierda { left: 0; }
+#derecha { right: 0; }
+
+/* Centro */
 #centro {
-    margin-top: 15%;
+    margin-top: 10%;
     text-align: center;
-    color: whitesmoke;
-    font-size: 35px;
-    animation:reverse;
-}
-#abeja {
-    display: block;
-    max-width: 200px;
-    height: auto;
-    size: 100%;
-    width: 200px;
-}
-#derecha {
-    position: fixed;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 180px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: white;
+    font-size: 28px;
+    animation: aparecer 1.5s ease;
 }
 
-#amol{
-    background-color: #f3a505;
+/* Animación entrada */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Abeja */
+.abeja {
+    width: 200px;
+    max-width: 100%;
+    animation: flotar 3s infinite ease-in-out;
+}
+
+/* Animación abeja */
+@keyframes flotar {
+    0%, 100% { transform: translateY(-50%) translateY(0); }
+    50% { transform: translateY(-50%) translateY(-20px); }
+}
+
+/* Botón */
+#amol {
+    background: linear-gradient(45deg, #f3a505, yellow);
     color: red;
     font-weight: bold;
-    padding: 10px 20px;
-    animation: alternateColor 1s infinite;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-@keyframes alternateColor {
-    0% {
-        background-color: #f3a505;
-        color: red;
-    }
-    100% {
-        background-color: yellow;
-        color: red;
-    }
+#amol:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px yellow;
 }
 
+/* Flores cayendo */
 .heart {
     position: fixed;
-    font-size: 28px;
     pointer-events: none;
     z-index: 9999;
-    animation: fallHeart 2.5s ease-out forwards;
+    animation: fallHeart 3s linear forwards;
 }
 
 @keyframes fallHeart {
     0% {
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
         opacity: 1;
     }
     100% {
-        transform: translateY(110vh) translateX(30px) scale(1.2);
+        transform: translateY(110vh);
         opacity: 0;
+    }
+}
+
+/* 📱 RESPONSIVE (móvil tipo iPhone 11) */
+@media (max-width: 480px) {
+
+    #izquierda, #derecha {
+        display: none;
+    }
+
+    #centro {
+        margin-top: 40%;
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    body {
+        background-size: 150px;
+    }
+
+    #amol {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    /* Abeja arriba en móvil */
+    #centro::before {
+        content: "";
+        display: block;
+        margin: 0 auto 20px;
+        width: 120px;
+        height: 120px;
+        background-image: url("bee-eyebrows.webp");
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: flotar 3s infinite ease-in-out;
     }
 }
